@@ -1,4 +1,4 @@
--- @version: 1.0
+-- @version: 1.1
 
 --// SCRIPT SETUP & FONT LOADING //--
 Renderer.LoadFontFromFile("TahomaDebug23", "Tahoma", 12, true)
@@ -34,7 +34,7 @@ local tt = Menu.Checker("Trash talk", false)
 
 local a = Menu.Checker("--------------------------------------------", false)
 
-local SCRIPT_URL = "https://pastebin.com/raw/642j8p4F"
+local SCRIPT_URL = "https://github.com/hypnomacka/grif.lua/blob/main/grif.lua"
 local SCRIPT_PATH = "C:\\plaguecheat.cc\\" .. Cheat.GetScriptName()
 local UPDATE_INTERVAL = 3600
 
