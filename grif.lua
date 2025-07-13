@@ -1,9 +1,9 @@
--- @version: 1.1
+-- @version: 1.2
 
 --// SCRIPT SETUP & FONT LOADING //--
 Renderer.LoadFontFromFile("TahomaDebug23", "Tahoma", 12, true)
 
-local menu_auto_update_enabled = Menu.Checker("Enable Auto-Update", false)
+local menu_auto_update_enabled = Menu.Checker("Enable Auto-Update", true)
 
 local a = Menu.Checker("--------------------------------------------", false)
 
@@ -24,12 +24,13 @@ local statsMode = Menu.Combo("Stats Mode", 0, {"Stats persist between rounds", "
 
 local a = Menu.Checker("--------------------------------------------", false)
 
-local rs = Menu.Checker("Roll spin", false, false, true)
+local rs = Menu.Checker("Roll spin", false)
 local rs_speed = Menu.Slider("Roll speed", 5, 1, 20)
+local fp = Menu.Checker("Fake pitch", false, false, true)
 
 local a = Menu.Checker("--------------------------------------------", false)
 
-local spam_checkbox = Menu.Checker("SharkHack %%%", false)
+local spam_checkbox = Menu.Checker("Sharkhack spam", false)
 local tt = Menu.Checker("Trash talk", false)
 
 local a = Menu.Checker("--------------------------------------------", false)
@@ -1254,15 +1255,20 @@ local function OnPostCreateMove(cmd)
     if rs:GetBool() then
         cmd.m_angViewAngles = Vector(cmd.m_angViewAngles.x, cmd.m_angViewAngles.y, roll)
     end
+
+    if fp:GetBool() and fp:IsDown() then
+        cmd.m_angViewAngles = Vector(-3402823346297399750336966557696, cmd.m_angViewAngles.y, cmd.m_angViewAngles.z)
+    end
+
 end
 
 local messages = {
-    "You just sucked a SharkHack cheat",
-    "I'm fucking you with SharkHack cheat xD",
-    "Download SharkHack cheat right now",
-    "SharkHack is the best cheat in the world!",
-    "Download SharkHack and bend everyone over with me",
-    "SharkHack is the best FREE cheat!"
+    "You just sucked a ShitHack cheat",
+    "I'm fucking you with ShitHack cheat xD",
+    "Download ShitHack cheat right now",
+    "ShitHack is the best cheat in the world!",
+    "Download ShitHack and bend everyone over with me",
+    "ShitHack is the best FREE cheat!"
 }
 
 local spam_interval = 0.1
